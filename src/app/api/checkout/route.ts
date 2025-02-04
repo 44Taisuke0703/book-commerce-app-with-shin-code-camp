@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from "next/server";
 import Stripe from "stripe"
 const stripe = new Stripe(process.env.STRIPE_SECRET_KET!)
-export const POST = async (req: Request, res: Response) => {
+export const POST = async (req: Request) => {
     const baseUrl = 'http://localhost:3000'
     console.log('start');
     const { title, price, bookId, userId } = await req.json();
