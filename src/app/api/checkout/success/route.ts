@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import prisma from "@/app/lib/prisma"
 import { NextResponse } from "next/server"
 import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KET!)
 
-export const POST = async (req: Request, res: Response) => {
+export const POST = async (req: Request) => {
     const { sessionId } = await req.json();
 
     try {
