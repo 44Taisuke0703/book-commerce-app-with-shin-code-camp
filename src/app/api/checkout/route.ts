@@ -4,7 +4,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
 export const POST = async (req: Request) => {
     const baseUrl = 'http://localhost:3000'
     console.log('start');
-    const { title, price, bookId, userId } = await req.json();
+    const { title, price, bookId, userId } = await req.json();//
     console.log(title, price);
     try {
         // チェックアウトセッションの作成
