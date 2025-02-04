@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import prisma from "@/app/lib/prisma"
 import { NextResponse } from "next/server"
 import Stripe from "stripe";

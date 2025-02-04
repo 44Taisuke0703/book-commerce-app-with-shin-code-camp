@@ -26,11 +26,13 @@ const PurchaseSuccess = () => {
           const data = await res.json();
           console.log(data);
           setBookUrl(data.purchase.bookId);
-        } catch (err) {}
+        } catch (err) {
+          console.log(err);
+        }
       }
     };
     fetchData();
-  }, []);
+  }, [sessionId]);
   return (
     <div className="flex items-center justify-center  mt-20">
       <div className="bg-white p-6 rounded-lg shadow-lg">

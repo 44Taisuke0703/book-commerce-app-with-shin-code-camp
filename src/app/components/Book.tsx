@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { BookType, User } from "../types/types";
 import { FC, useState } from "react";
 import { useSession } from "next-auth/react";
@@ -41,7 +40,7 @@ const Book: FC<BookProps> = ({ book, isPurchased }: BookProps) => {
         router.push(responseData.checkout_url);
       }
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
     }
   };
   const handleCancel = () => {
