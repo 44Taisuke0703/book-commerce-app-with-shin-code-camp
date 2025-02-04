@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe"
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, { apiVersion: '2025-01-27.acacia' })
 export const POST = async (req: Request) => {
-    const baseUrl = 'http://localhost:3000'
+    console.log(process.env.STRIPE_SECRET_KEY);
+    const baseUrl = process.env.NEXTAUTH_URL
     console.log('start');
     const { title, price, bookId, userId } = await req.json();//
     console.log(title, price);

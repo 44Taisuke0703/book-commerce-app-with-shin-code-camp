@@ -9,7 +9,7 @@ export async function middleware(req: NextRequest) {
     if (!req.cookies.get("next-auth.session-token")) {
         // リダイレクトURLを指定
         const callbackUrl = encodeURIComponent(req.nextUrl.pathname); // 認証後にリダイレクトするURL
-        return NextResponse.redirect(`http://localhost:3000/login?callbackUrl=${callbackUrl}`);
+        return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/login?callbackUrl=${callbackUrl}`);
     }
 
 
