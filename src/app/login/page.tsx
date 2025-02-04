@@ -6,7 +6,6 @@ import {
   LiteralUnion,
   signIn,
 } from "next-auth/react";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 function Login() {
@@ -14,9 +13,6 @@ function Login() {
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider
   > | null>(null);
-  const searchParams = useSearchParams();
-  const url = searchParams.get("callbackUrl") || "/";
-  console.log(url);
   useEffect(() => {
     const getProvs = async () => {
       const providers = await getProviders().then((res) => {
@@ -41,7 +37,7 @@ function Login() {
               return (
                 <div key={provider.id} className="text-center">
                   <button
-                    onClick={() => signIn(provider.id, { callbackUrl: url })}
+                    onClick={() => signIn(provider.id, { callbackUrl: "/" })}
                     className="bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-full"
                   >
                     <svg
