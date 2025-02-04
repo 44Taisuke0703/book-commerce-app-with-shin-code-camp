@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from "next/server";
 import Stripe from "stripe"
 const stripe = new Stripe(process.env.STRIPE_SECRET_KET!)
@@ -33,6 +34,7 @@ export const POST = async (req: Request, res: Response) => {
         return NextResponse.json({
             checkout_url: session.url,
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
         return NextResponse.json({ message: err.message });
     }
