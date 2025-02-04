@@ -13,14 +13,6 @@ export const nextAuthOptions: NextAuthOptions = {
     ],
     adapter: PrismaAdapter(prisma),
     callbacks: {
-        async signIn({ user, account, profile }) {
-            console.log("Sign-in response", user, account, profile);
-            if (account?.provider === 'github' && profile?.email) {
-                console.log('成功');
-                return true; // サインインが成功した場合にtrueを返す
-            }
-            return false; // 認証失敗の場合
-        },
         session: ({ session, user }) => {
             return {
                 ...session,
